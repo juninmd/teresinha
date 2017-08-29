@@ -1,0 +1,1 @@
+`/repos/luizalabs/teresa/releases/latest`
