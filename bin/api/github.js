@@ -1,22 +1,19 @@
-`/repos/luizalabs/teresa/releases/latest`
 const hades = require('hades-request');
+const webconfig = require('../webconfig');
 
-getTeresa: () => {
-    return new Promise((resolve, reject) => {
-        const options = {
-            url: `https://api.github.com/orgs/${webconfig.github.owner}/repos?access_token=${webconfig.github.token}`,
-            method: 'GET',
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'
-            }
-        };
+module.exports = () => {
+    return {
+        getTeresa: getTeresa
+    }
+}
 
-        hades.do(options)
-            .then(result => {
-                return resolve(result);
-            })
-            .catch(err => {
-                return reject(err);
-            })
-    })
-};
+async function getTeresa() {
+    const options = {
+        url: `https://api.github.com/repos/luizalabs/teresa/releases/latest?access_token=${webconfig.github.token}`,
+        method: 'GET',
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'
+        }
+    };
+    return await hades.do(options);
+}
