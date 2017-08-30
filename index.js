@@ -1,3 +1,5 @@
+require('dotenv').config({ path: `./bin/env/${process.env.NODE_ENV || 'development'}.env` })
+
 const notifier = require('node-notifier');
 const path = require('path');
 
