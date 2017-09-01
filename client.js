@@ -4,28 +4,24 @@ const program = require('commander');
 const checkUpdate = require('./bin/actions/checkUpdate');
 const download = require('./bin/actions/downloadTeresa');
 
-program
-    .version(version)
-    .command('check')
-    .description('Verifica a versão do teresinha')
-    .action((req, optional) => {
-        console.log("check");
-        checkUpdate();
-    });
+if(process.argv.length == 2){
+    console.log('Verifique os comandos com $ teresinha --help')
+}
 
 program
-    .command('update')
-    .description('Atualiza o teresa cli')
-    .option('-p, --path', 'Selecione o diretório')
-    .action((directory, options) => {
-        if (options.path){
-            console.log(directory);
-            download()
-        }
-        else {
-            console.log("por favor, preencha o caminho")
-        }
-    });
+.version(version)
+.command('check')
+.description('Verifica a versão do teresinha')
+.action((req, optional) => {
+    checkUpdate();
+});
+
+program
+.command('update')
+.description('Atualiza o teresa cli')
+.action(() => {
+    download()
+});
 
 
 program.parse(process.argv);
