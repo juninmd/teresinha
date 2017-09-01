@@ -6,6 +6,11 @@ const downloadUtil = require('../util/download');
 async function download() {
     try {
         let t = await github.getTeresa();
+        if (t.documentation_url) {
+            console.error("Token Inválido.");
+            process.exit(1);
+            return;
+        }
         
         let asset = getMyOsVersion(t.assets);
         
