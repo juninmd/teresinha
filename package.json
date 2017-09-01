@@ -1,6 +1,20 @@
 {
   "name": "teresinha",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "description": "Teresinha é uma interface para verificar a versão do teresa.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juninmd/teresinha.git"
+  },
+  "author": "Antonio Carlos",
+  "bugs": {
+    "url": "https://github.com/juninmd/teresinha/issues"
+  },
+  "keywords": [
+    "teresa",
+    "client"
+  ],
+  "homepage": "https://github.com/juninmd/teresinha#readme",
   "license": "MIT",
   "dependencies": {
     "commander": "^2.11.0",
