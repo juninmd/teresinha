@@ -10,7 +10,6 @@ module.exports = () => {
     }
 }
 
-
 async function verifyInstalled() {
     return await new Promise((resolve, reject) => {
         cmd.get('teresa', (err, data, stderr) => {
@@ -58,10 +57,10 @@ async function movePath(path) {
             comando = `mv ${path} c://windows/system32/`;
             break;
             case "Linux":
-            comando = `mv ${path} /usr/bin/`;
+            comando = `mv ${path} /usr/local/bin/`;
             break;
             default:
-            comando = `mv ${path} /usr/bin/`;
+            comando = `mv ${path} /usr/local/bin/`;
             break;
         }
         cmd.get(comando, (err, data, stderr) => {
