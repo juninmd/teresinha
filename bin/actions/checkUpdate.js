@@ -9,17 +9,17 @@ async function check() {
         process.exit(1);
         return;
     }
-
+    
     let teresaExist = await teresa.verifyInstalled();
     if (teresaExist) {
         if (t.name == await teresa.verifyVersion()) {
-            console.log(`Você possui a última versão do teresa`);
+            console.log(`Você já possui a última versão do teresa`);
             return;
         }
     }
-
+    
     let asset = getMyOsVersion(t.assets);
-
+    
     console.log(`Novo executável do teresa disponível!\nAutor: ${asset.uploader.login}\nVersão: ${t.tag_name}\nAtualize com o comando: $ teresinha update <path>`)
 }
 

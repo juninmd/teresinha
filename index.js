@@ -1,1 +1,1 @@
-require('./bin/actions/downloadTeresa')('D:\\');
+require('./bin/actions/downloadTeresa')('/home/antonio/Pessoal/teresinha/');
