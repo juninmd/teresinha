@@ -3,6 +3,9 @@
 ## O que é?
 - Teresinha checa a versão e atualiza o seu cliente do teresa.
 
+## Requisitos
+- Node 8+
+
 ## Instruções
 - (Linux/Mac) Abra o terminal com 
 ```bash
