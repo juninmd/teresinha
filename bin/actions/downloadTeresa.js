@@ -12,7 +12,7 @@ async function download(directory) {
         let teresaExist = await teresa.verifyInstalled();
         if (teresaExist) {
             if (t.name == await teresa.verifyVersion()) {
-                console.log(`Você já possui a última versão do teresa`);
+                console.log(`Você já possui a última versão do teresa ${t.name}`);
                 return;
             }
         }
