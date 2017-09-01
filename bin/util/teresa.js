@@ -42,7 +42,7 @@ async function setChmod(path) {
         
         cmd.get(`chmod +777 ${path}`, (err, data, stderr) => {
             if (err) {
-                return resolve(err);
+                return reject(err);
             }
             return resolve(data);
         });
@@ -66,7 +66,7 @@ async function movePath(path) {
         }
         cmd.get(comando, (err, data, stderr) => {
             if (err) {
-                return resolve(err);
+                return reject(err);
             }
             return resolve(data);
         });

@@ -12,15 +12,22 @@ async function check() {
     
     let teresaExist = await teresa.verifyInstalled();
     if (teresaExist) {
-        if (t.name == await teresa.verifyVersion()) {
-            console.log(`Você já possui a última versão do teresa ${t.name}`);
+        let computerVersion = await teresa.verifyVersion()
+        if (t.name == computerVersion) {
+            console.log(`Você já possui a última versão do teresa: [${t.name}]`);
             return;
         }
+        else{
+            console.log(`A versão instalada é a [${computerVersion}], vamos atualizar para a [${t.name}]`);
+        }
+    }
+    else{
+        console.log(`Você ainda não tem o teresa instalado`);
     }
     
     let asset = getMyOsVersion(t.assets);
     
-    console.log(`Novo executável do teresa disponível!\nAutor: ${asset.uploader.login}\nVersão: ${t.tag_name}\nAtualize com o comando: $ teresinha update <path>`)
+    console.log(`Informações da última release:\nAutor: ${asset.uploader.login}\nVersão: ${t.tag_name}\nAtualize com o comando: $ teresinha update`)
 }
 
 module.exports = () => {
