@@ -2,4 +2,3 @@ node_modules/*
 yarn.lock
 bin/env/development.env
 images/
-webconfig.js
