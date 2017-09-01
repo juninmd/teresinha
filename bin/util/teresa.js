@@ -35,7 +35,7 @@ async function verifyVersion() {
 async function setChmod(path) {
     return new Promise((resolve, reject) => {
         
-        if(os.type() != "Linux"){
+        if(os.type() == "Windows_NT"){
             return resolve({});
         }
         
