@@ -6,6 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/juninmd/teresinha.svg)](https://github.com/juninmd/teresinha/network)
 
 ## O que é?
+![teresinha](https://raw.githubusercontent.com/juninmd/teresinha/master/images/teresinha.jpg)
 - `Teresinha` checa a última versão/atualiza o cliente do
 [Teresa](https://github.com/luizalabs/teresa/)
 
