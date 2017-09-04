@@ -4,7 +4,6 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/teresinha.svg)](https://npmjs.org/package/teresinha)
 [![GitHub issues](https://img.shields.io/github/issues/juninmd/teresinha.svg)](https://github.com/juninmd/teresinha/issues)
 [![GitHub forks](https://img.shields.io/github/forks/juninmd/teresinha.svg)](https://github.com/juninmd/teresinha/network)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/juninmd/teresinha.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 
 ## O que é?
 - `Teresinha` checa a última versão/atualiza o cliente do
