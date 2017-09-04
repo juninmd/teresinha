@@ -17,7 +17,7 @@
 ```bash
 $ sudo su
 ```
-- (Windows) Abra o cmd/powershell com os privilégios de `Adminisrador`
+- (Windows) Abra o cmd/powershell com os privilégios de `Administrador`
 
 - Agora instale a biblioteca globalmente
 ```bash
