@@ -1,25 +1,54 @@
 # Teresinha
 
+[![NPM Version](https://img.shields.io/npm/v/teresinha.svg)](https://npmjs.org/package/teresinha)
+[![NPM Downloads](https://img.shields.io/npm/dm/teresinha.svg)](https://npmjs.org/package/teresinha)
+[![GitHub issues](https://img.shields.io/github/issues/juninmd/teresinha.svg)](https://github.com/juninmd/teresinha/issues)
+[![GitHub forks](https://img.shields.io/github/forks/juninmd/teresinha.svg)](https://github.com/juninmd/teresinha/network)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/juninmd/teresinha.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
+
 ## O que é?
-- Teresinha checa a versão e atualiza o seu cliente do teresa.
+- `Teresinha` checa a última versão/atualiza o cliente do
+[Teresa](https://github.com/luizalabs/teresa/)
 
 ## Requisitos
-- Node 8+
+- Node 8 `(Await/Async)`
 
-## Instruções
+## Instruções de instalação
 - (Linux/Mac) Abra o terminal com 
 ```bash
 $ sudo su
 ```
-- Agora instale com o npm
+- (Windows) Abra o cmd/powershell com os privilégios de `Adminisrador`
+
+- Agora instale a biblioteca globalmente
 ```bash
 $ npm install -g teresinha
 ```
 
-- Após isso, teremos disponível o cliente, para ver os comandos digite:
+- Após isso, teremos disponível o `Teresinha`, para testar digite:
 ```bash
 $ teresinha --help
 ```
 
+## Onde o `Teresa` será baixado?
+- Linux / Mac
+```
+/usr/local/bin/
+```
+- Windows
+```
+C:/Windows/System32/
+```
+
+## Comandos disponíveis
+- Checa a última versão do `Teresa` e compara com a local
+```bash
+$ teresinha check
+```
+- Atualiza o `Teresa` caso a versão local não seja a atual ou não exista
+```bash
+$ teresinha update
+```
+
 ## Mais informações
-[Link oficial do Teresa](https://github.com/luizalabs/teresa/releases)
+[Link oficial do Teresa](https://github.com/luizalabs/teresa/)
