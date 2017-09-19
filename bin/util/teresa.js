@@ -48,19 +48,19 @@ async function setChmod(path) {
     })
 }
 
-async function movePath(path) {
+async function movePath(path, filename) {
     return new Promise((resolve, reject) => {
         
         let comando = "";
         switch (os.type()) {
             case "Windows_NT":
-            comando = `mv ${path} c://windows/system32/`;
+            comando = `mv ${path}\\${filename} c:\\windows\\system32\\`;
             break;
             case "Linux":
-            comando = `mv ${path} /usr/local/bin/`;
+            comando = `mv ${path}//${filename} /usr/local/bin/`;
             break;
             default:
-            comando = `mv ${path} /usr/local/bin/`;
+            comando = `mv ${path}//${filename} /usr/local/bin/`;
             break;
         }
         cmd.get(comando, (err, data, stderr) => {

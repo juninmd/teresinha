@@ -36,8 +36,8 @@ async function download() {
         });
         
         try {
-            await teresa.setChmod(`${__dirname}//${asset.filename}`)
-            await teresa.movePath(`${__dirname}//${asset.filename}`)
+            await teresa.setChmod(`${__dirname}//${asset.filename}`);
+            await teresa.movePath(__dirname, asset.filename);
             console.log('Atualizado com sucesso meu parça!');
             
         } catch (error) {
