@@ -17,11 +17,11 @@
   "homepage": "https://github.com/juninmd/teresinha#readme",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.11.0",
-    "download": "^6.2.5",
-    "hades-request": "^1.0.0",
-    "loading-indicator": "^2.0.0",
-    "node-cmd": "^3.0.0"
+    "commander": "2.11.0",
+    "download": "6.2.5",
+    "hades-request": "1.0.0",
+    "loading-indicator": "2.0.0",
+    "node-cmd": "3.0.0"
   },
   "preferGlobal": true,
   "bin": {
