@@ -1,5 +1,6 @@
 # Teresinha
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bd50a07fc69d4d31b972d66fb2c59a60)](https://www.codacy.com/app/jr_acn/teresinha?utm_source=github.com&utm_medium=referral&utm_content=juninmd/teresinha&utm_campaign=badger)
 [![NPM Version](https://img.shields.io/npm/v/teresinha.svg)](https://npmjs.org/package/teresinha)
 [![NPM Downloads](https://img.shields.io/npm/dm/teresinha.svg)](https://npmjs.org/package/teresinha)
 [![GitHub issues](https://img.shields.io/github/issues/juninmd/teresinha.svg)](https://github.com/juninmd/teresinha/issues)
