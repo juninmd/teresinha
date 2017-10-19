@@ -27,7 +27,7 @@ async function check() {
 
     let asset = getMyOsVersion(t.assets);
 
-    console.log(`Informações da última release:\nAutor: ${asset.uploader.login}\nVersão: ${t.tag_name}\nAtualize com o comando: $ sudo teresinha update`)
+    console.log(`Informações da última release:\nAutor: ${asset.uploader.login}\nVersão: ${t.tag_name}\nAtualize com o comando: $ teresinha update`)
 }
 
 module.exports = () => {
