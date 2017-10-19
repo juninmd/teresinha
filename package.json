@@ -22,7 +22,7 @@
     "hades-request": "1.0.0",
     "loading-indicator": "2.0.0",
     "node-cmd": "^3.0.0",
-    "sudo-prompt": "^7.1.1"
+    "sudo": "^1.0.3"
   },
   "preferGlobal": true,
   "bin": {
