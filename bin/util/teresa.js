@@ -1,5 +1,9 @@
-const cmd = require('node-cmd');
+const cmd = require('sudo-prompt');
+const nodecmd = require('node-cmd');
 const os = require('os');
+const options = {
+    name: 'Teresinha'
+};
 
 module.exports = () => {
     return {
@@ -12,7 +16,7 @@ module.exports = () => {
 
 async function verifyInstalled() {
     return await new Promise((resolve, reject) => {
-        cmd.get('teresa', (err, data, stderr) => {
+        nodecmd.get('teresa', (err, data, stderr) => {
             if (err) {
                 return resolve(false);
             }
@@ -23,23 +27,23 @@ async function verifyInstalled() {
 
 async function verifyVersion() {
     return new Promise((resolve, reject) => {
-        cmd.get('teresa version', (err, data, stderr) => {
+        nodecmd.get('teresa version', (err, data, stderr) => {
             if (err) {
                 return resolve(err);
             }
-            return resolve(data.replace('Version: ','').trim());
+            return resolve(data.replace('Version: ', '').trim());
         });
     })
 }
 
 async function setChmod(path) {
     return new Promise((resolve, reject) => {
-        
-        if(os.type() == "Windows_NT"){
+
+        if (os.type() === "Windows_NT") {
             return resolve({});
         }
-        
-        cmd.get(`chmod 777 ${path}`, (err, data, stderr) => {
+
+        cmd.exec(`chmod 777 ${path}`, options, (err, data, stderr) => {
             if (err) {
                 return reject(err);
             }
@@ -50,20 +54,20 @@ async function setChmod(path) {
 
 async function movePath(path, filename) {
     return new Promise((resolve, reject) => {
-        
+
         let comando = "";
         switch (os.type()) {
             case "Windows_NT":
-            comando = `move "${path}\\${filename}" "c:\\windows\\system32\\"`;
-            break;
+                comando = `move "${path}\\${filename}" "c:\\windows\\system32\\"`;
+                break;
             case "Linux":
-            comando = `mv ${path}//${filename} /usr/local/bin/`;
-            break;
+                comando = `mv ${path}//${filename} /usr/local/bin/`;
+                break;
             default:
-            comando = `mv ${path}//${filename} /usr/local/bin/`;
-            break;
+                comando = `mv ${path}//${filename} /usr/local/bin/`;
+                break;
         }
-        cmd.get(comando, (err, data, stderr) => {
+        cmd.exec(comando, options, (err, data, stderr) => {
             if (err) {
                 return reject(err);
             }

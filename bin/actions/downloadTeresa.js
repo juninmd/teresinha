@@ -17,7 +17,7 @@ async function download() {
         let teresaExist = await teresa.verifyInstalled();
         if (teresaExist) {
             let computerVersion = await teresa.verifyVersion()
-            if (t.name == computerVersion) {
+            if (t.name === computerVersion) {
                 console.log(`Você já possui a última versão do teresa: [${t.name}]`);
                 return;
             }
