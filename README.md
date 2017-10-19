@@ -15,11 +15,9 @@
 - Node 8 `(Await/Async)`
 
 ## Instruções de instalação
-- (Linux/Mac) Abra o terminal com 
-```bash
-$ sudo su
-```
-- (Windows) Abra o cmd/powershell com os privilégios de `Administrador`
+- (Linux/Mac) Use o terminal
+
+- (Windows) Use o cmd/powershell com os privilégios de `Administrador`
 
 - Agora instale a biblioteca globalmente
 ```bash

@@ -42,7 +42,7 @@ async function download() {
             console.log('Atualizado com sucesso meu parça!');
             
         } catch (error) {
-            console.log(`Talvez você não tenha rodado o teresinha como super user, use "$ sudo teresinha update"`)
+            console.log(`Talvez você não tenha rodado o teresinha como super user, use "$ teresinha update"`)
             console.log(error.message)
         }
         
