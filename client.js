@@ -4,15 +4,15 @@ const program = require('commander');
 const checkUpdate = require('./bin/actions/checkUpdate');
 const download = require('./bin/actions/downloadTeresa');
 
-if(process.argv.length == 2){
+if(process.argv.length === 2){
     console.log('Verifique os comandos com $ teresinha --help')
 }
 
 program
 .version(version)
 .command('check')
-.description('Verifica a versão do teresinha')
-.action((req, optional) => {
+.description('Verifica a versão do teresa cli')
+.action(() => {
     checkUpdate();
 });
 
