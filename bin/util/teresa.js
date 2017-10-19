@@ -1,4 +1,3 @@
-const cmd = require('sudo-prompt');
 const nodecmd = require('node-cmd');
 const os = require('os');
 const options = {
@@ -7,11 +6,31 @@ const options = {
 
 module.exports = () => {
     return {
+        setSudo: setSudo,
         verifyInstalled: verifyInstalled,
         verifyVersion: verifyVersion,
         setChmod: setChmod,
         movePath: movePath
     }
+}
+async function setSudo() {
+    return new Promise((resolve, reject) => {
+        
+        if (os.type() === "Windows_NT") {
+            return resolve({});
+        }
+        
+        let sudo = require('sudo');
+        let options = {
+            cachePassword: true,
+            prompt: '[sudo] Digite sua senha',
+            spawnOptions: { /* other options for spawn */ }
+        };
+        let child = sudo([ 'ls', '-l', '/tmp', 'mv' ], options);
+        child.stdout.on('data', function (data) {
+            return resolve({});
+        });
+    })
 }
 
 async function verifyInstalled() {
@@ -38,12 +57,12 @@ async function verifyVersion() {
 
 async function setChmod(path) {
     return new Promise((resolve, reject) => {
-
+        
         if (os.type() === "Windows_NT") {
             return resolve({});
         }
-
-        cmd.exec(`chmod 777 ${path}`, options, (err, data, stderr) => {
+        
+        nodecmd.get(`sudo chmod 777 ${path}`, (err, data, stderr) => {
             if (err) {
                 return reject(err);
             }
@@ -54,20 +73,20 @@ async function setChmod(path) {
 
 async function movePath(path, filename) {
     return new Promise((resolve, reject) => {
-
+        
         let comando = "";
         switch (os.type()) {
             case "Windows_NT":
-                comando = `move "${path}\\${filename}" "c:\\windows\\system32\\"`;
-                break;
+            comando = `move "${path}\\${filename}" "c:\\windows\\system32\\"`;
+            break;
             case "Linux":
-                comando = `mv ${path}//${filename} /usr/local/bin/`;
-                break;
+            comando = `sudo mv ${path}//${filename} /usr/local/bin/`;
+            break;
             default:
-                comando = `mv ${path}//${filename} /usr/local/bin/`;
-                break;
+            comando = `sudo mv ${path}//${filename} /usr/local/bin/`;
+            break;
         }
-        cmd.exec(comando, options, (err, data, stderr) => {
+        nodecmd.get(comando, (err, data, stderr) => {
             if (err) {
                 return reject(err);
             }
