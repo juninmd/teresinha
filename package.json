@@ -1,6 +1,6 @@
 {
   "name": "teresinha",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Teresinha é uma interface para verificar a versão do teresa.",
   "repository": {
     "type": "git",
@@ -17,9 +17,9 @@
   "homepage": "https://github.com/juninmd/teresinha#readme",
   "license": "MIT",
   "dependencies": {
-    "babel-cli": "6.26.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "commander": "2.11.0",
     "download": "6.2.5",
     "hades-request": "1.0.0",
