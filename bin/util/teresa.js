@@ -23,7 +23,7 @@ async function setSudo() {
         let sudo = require('sudo');
         let options = {
             cachePassword: true,
-            prompt: '[sudo] Digite sua senha',
+            prompt: '[sudo] Digite sua senha: ',
             spawnOptions: { /* other options for spawn */ }
         };
         let child = sudo([ 'ls', '-l', '/tmp', 'mv' ], options);

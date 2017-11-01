@@ -2,3 +2,4 @@ node_modules/*
 yarn.lock
 bin/env/development.env
 images/
+package-lock.json
