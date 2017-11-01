@@ -8,26 +8,43 @@
 
 ## O que é?
 ![teresinha](https://raw.githubusercontent.com/juninmd/teresinha/master/images/teresinha.jpg)
-- `Teresinha` checa a última versão/atualiza o cliente do
-[Teresa](https://github.com/luizalabs/teresa/)
+- Teresinha checa a última versão e atualiza o cliente do
+[Teresa](https://github.com/luizalabs/teresa/).
 
 ## Requisitos
-- Node 8 `(Await/Async)`
+- [Node 6+](http://nodejs.org/)
 
 ## Instruções de instalação
-- (Linux/Mac) Use o terminal
+- `Linux ou Mac` 
+  - Use o terminal
 
-- (Windows) Use o cmd/powershell com os privilégios de `Administrador`
+- `Windows`
+  - Use o cmd ou powershell com os privilégios de `Administrador`
 
-- Agora instale a biblioteca globalmente
+### Comandos
+- Instale o `teresinha` globalmente via `npm` ou `yarn`
 ```bash
 $ npm install -g teresinha
 ```
+```bash
+$ yarn global add teresinha
+```
 
-- Após isso, teremos disponível o `Teresinha`, para testar digite:
+- Após a instalação teremos disponível o `Teresinha`, para exibir a lista de comandos disponíveis digite:
+
 ```bash
 $ teresinha --help
 ```
+
+## Comandos disponíveis
+```bash
+$ teresinha check
+```
+- Checa a última versão do `Teresa` disponível e compara com a local caso já tenha baixado
+```bash
+$ teresinha update
+```
+- Atualiza o `Teresa` caso a versão local não seja a atual ou não exista
 
 ## Onde o `Teresa` será baixado?
 - Linux / Mac
@@ -39,15 +56,5 @@ $ teresinha --help
 C:/Windows/System32/
 ```
 
-## Comandos disponíveis
-- Checa a última versão do `Teresa` e compara com a local
-```bash
-$ teresinha check
-```
-- Atualiza o `Teresa` caso a versão local não seja a atual ou não exista
-```bash
-$ teresinha update
-```
-
-## Mais informações
-[Link oficial do Teresa](https://github.com/luizalabs/teresa/)
+## Link oficial do Teresa
+[https://github.com/luizalabs/teresa/](https://github.com/luizalabs/teresa/)
