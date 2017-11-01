@@ -12,7 +12,7 @@
 [Teresa](https://github.com/luizalabs/teresa/).
 
 ## Requisitos
-- [Node 6+](http://nodejs.org/)
+- [Node 8+](http://nodejs.org/)
 
 ## Instruções de instalação
 - `Linux ou Mac` 
