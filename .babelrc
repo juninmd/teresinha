@@ -1,3 +1,7 @@
 {
-  "presets": ["env"]
+  "presets": ["env"],
+  "plugins": [["shebang", {
+    "replacement": "#!/usr/bin/env node",
+    "force": false
+  }]]
 }
