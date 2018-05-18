@@ -34,7 +34,7 @@ program
   });
 
 program
-  .command('start all')
+  .command('start')
   .description('Starta todos seus apps')
   .action(async () => {
     try {
@@ -45,7 +45,7 @@ program
   });
 
 program
-  .command('set env')
+  .command('env')
   .description('Configura variáveis de ambiente em massa')
   .action(async () => {
     try {
@@ -55,12 +55,12 @@ program
         return;
       }
 
-      const app = process.argv[5];
+      const app = process.argv[4];
       if (!app) {
         console.log('Informe nome do app');
         return;
       }
-      const envPath = process.argv[6];
+      const envPath = process.argv[5];
       if (envPath) {
         console.log('Informe caminho do .env');
         return;
