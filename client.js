@@ -61,7 +61,7 @@ program
         return;
       }
       const envPath = process.argv[4];
-      if (envPath) {
+      if (!envPath) {
         console.log('Informe caminho do .env');
         return;
       }

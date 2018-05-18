@@ -7,14 +7,16 @@ module.exports = {
 }
 
 function setCommand(command) {
+    console.log(`${command}`);
     return new Promise((resolve, reject) => {
-        nodecmd.get(command, (err, data, stderr) => {
-            console.log(`${command}\n${err}\n${data}\n${stderr}`);
-            if (err) {
-                return reject(err);
-            }
-            return resolve(data);
-        });
+        setTimeout(() => {
+            nodecmd.get(command, (err, data, stderr) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(data);
+            });
+        }, 1000);
     })
 }
 
@@ -46,11 +48,23 @@ async function startAllApps() {
 
 async function setConfigs(appName, path) {
 
-    const allEnvs = fs.readFileSync(path).toString().split("\r\n").filter(q => q[0] != "#" && q != "");
+    if(!fs.existsSync(path)){
+        console.log(`${path} não foi encontrado`)
+        return;
+    }
 
-    const promises = allEnvs.map(env => {
-        return setCommand(`echo yes | teresa app env-set ${env} --app ${appName}`);
-    })
+    const allEnvs = fs.readFileSync(path).toString().split("\n").filter(q => q[0] != "#" && q != "");
 
-    return Promise.all(promises);
+    return runEnv(appName, allEnvs, 0);
 };
+
+async function runEnv(appName, allEnvs, i){
+
+    if(allEnvs[i] == null)
+        return undefined;
+
+    await setCommand(`echo yes | teresa app env-set ${allEnvs[i]} --app ${appName}`);
+    i++;
+
+    return runEnv(appName, allEnvs, i);
+}
