@@ -55,12 +55,12 @@ program
         return;
       }
 
-      const app = process.argv[4];
+      const app = process.argv[3];
       if (!app) {
         console.log('Informe nome do app');
         return;
       }
-      const envPath = process.argv[5];
+      const envPath = process.argv[4];
       if (envPath) {
         console.log('Informe caminho do .env');
         return;
