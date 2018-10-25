@@ -1,52 +1,37 @@
 const nodecmd = require('node-cmd');
 const os = require('os');
-const options = {
-    name: 'Teresinha'
-};
+const sudo = require('sudo');
 
-module.exports = () => {
-    return {
-        setSudo: setSudo,
-        verifyInstalled: verifyInstalled,
-        verifyVersion: verifyVersion,
-        setChmod: setChmod,
-        movePath: movePath
-    }
-}
 async function setSudo() {
-    return new Promise((resolve, reject) => {
-        
-        if (os.type() === "Windows_NT") {
+    return new Promise((resolve) => {
+
+        if (os.type() === 'Windows_NT') {
             return resolve({});
         }
-        
-        let sudo = require('sudo');
-        let options = {
+
+        const options = {
             cachePassword: true,
             prompt: '[sudo] Digite sua senha: ',
-            spawnOptions: { /* other options for spawn */ }
+            spawnOptions: {}
         };
-        let child = sudo([ 'ls', '-l', '/tmp', 'mv' ], options);
-        child.stdout.on('data', function (data) {
+        const child = sudo(['ls', '-l', '/tmp', 'mv'], options);
+        child.stdout.on('data', () => {
             return resolve({});
         });
     })
 }
 
-async function verifyInstalled() {
-    return await new Promise((resolve, reject) => {
-        nodecmd.get('teresa', (err, data, stderr) => {
-            if (err) {
-                return resolve(false);
-            }
-            return resolve(true);
+function verifyInstalled() {
+    return new Promise((resolve) => {
+        nodecmd.get('teresa', (err) => {
+            return resolve(err == null);
         });
     })
 }
 
-async function verifyVersion() {
+function verifyVersion() {
     return new Promise((resolve, reject) => {
-        nodecmd.get('teresa version', (err, data, stderr) => {
+        nodecmd.get('teresa version', (err, data) => {
             if (err) {
                 return resolve(err);
             }
@@ -57,12 +42,12 @@ async function verifyVersion() {
 
 async function setChmod(path) {
     return new Promise((resolve, reject) => {
-        
-        if (os.type() === "Windows_NT") {
+
+        if (os.type() === 'Windows_NT') {
             return resolve({});
         }
-        
-        nodecmd.get(`sudo chmod 777 ${path}`, (err, data, stderr) => {
+
+        nodecmd.get(`sudo chmod 777 ${path}`, (err, data) => {
             if (err) {
                 return reject(err);
             }
@@ -73,24 +58,52 @@ async function setChmod(path) {
 
 async function movePath(path, filename) {
     return new Promise((resolve, reject) => {
-        
-        let comando = "";
+
+        let comando = '';
         switch (os.type()) {
-            case "Windows_NT":
-            comando = `move "${path}\\${filename}" "c:\\windows\\system32\\"`;
-            break;
-            case "Linux":
-            comando = `sudo mv ${path}//${filename} /usr/local/bin/`;
-            break;
+            case 'Windows_NT':
+                comando = `move '${path}\\${filename}' 'c:\\windows\\system32\\'`;
+                break;
             default:
-            comando = `sudo mv ${path}//${filename} /usr/local/bin/`;
-            break;
+                comando = `sudo mv ${path}//${filename} /usr/local/bin/`;
+                break;
         }
-        nodecmd.get(comando, (err, data, stderr) => {
+        nodecmd.get(comando, (err, data) => {
             if (err) {
                 return reject(err);
             }
             return resolve(data);
         });
     })
+}
+
+async function allApps() {
+    const allApps = [];
+
+    const rawApps = (await setCommand(`teresa app list`)).split('\n');
+
+    for (const line of rawApps) {
+        if (line[0] === '+') {
+            continue;
+        }
+
+        if (line[0] === '|') {
+            const app = line.split('|')[2].trim();
+            if (app === 'APP') {
+                continue;
+            }
+            allApps.push(app)
+        }
+    }
+
+    return allApps;
+}
+
+module.exports = {
+    setSudo,
+    verifyInstalled,
+    verifyVersion,
+    setChmod,
+    movePath,
+    allApps
 }
