@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 const version = require('./package.json').version;
 const program = require('commander');
-const checkUpdate = require('./bin/actions/checkUpdate');
-const download = require('./bin/actions/downloadTeresa');
-const plus = require('./bin/actions/plus');
 const os = require('os');
+const { checkUpdate, download, startAllApps, setConfigs } = require('./bin/actions');
 
 if (process.argv.length === 2) {
   console.log('Verifique os comandos com $ teresinha --help')
@@ -18,7 +16,7 @@ program
     try {
       await checkUpdate();
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   });
 
@@ -27,9 +25,9 @@ program
   .description('Atualiza o teresa cli')
   .action(async () => {
     try {
-      await download()
+      await download();
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   });
 
@@ -38,9 +36,9 @@ program
   .description('Starta todos seus apps')
   .action(async () => {
     try {
-      await plus.startAllApps();
+      await startAllApps();
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   });
 
@@ -50,7 +48,7 @@ program
   .action(async () => {
     try {
 
-      if (os.type() === "Windows_NT") {
+      if (os.type() === 'Windows_NT') {
         console.log('Não disponível para Windows');
         return;
       }
@@ -66,9 +64,9 @@ program
         return;
       }
 
-      await plus.setConfigs(app, envPath);
+      await setConfigs(app, envPath);
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   });
 

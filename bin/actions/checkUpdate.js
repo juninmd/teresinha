@@ -1,18 +1,17 @@
-const github = require('../api/github.js')();
+const github = require('../api/github.js');
 const getMyOsVersion = require('../util/getMyOsAsset')
-const teresa = require('../util/teresa')()
+const teresa = require('../util/teresa')
 
-async function check() {
-    let t = await github.getTeresa();
+module.exports = async () => {
+    const t = await github.getTeresa();
     if (t.documentation_url) {
-        console.error("Token Inválido.");
-        process.exit(1);
-        return;
+        console.error('Token Inválido.');
+        throw 'Token Inválido GITHUB';
     }
 
-    let teresaExist = await teresa.verifyInstalled();
+    const teresaExist = await teresa.verifyInstalled();
     if (teresaExist) {
-        let computerVersion = await teresa.verifyVersion()
+        const computerVersion = await teresa.verifyVersion()
         if (t.name === computerVersion) {
             console.log(`Você já possui a última versão do teresa: [${t.name}]`);
             return;
@@ -25,11 +24,6 @@ async function check() {
         console.log(`Você ainda não tem o teresa cli instalado`);
     }
 
-    let asset = getMyOsVersion(t.assets);
-
+    const asset = getMyOsVersion(t.assets);
     console.log(`Informações da última release:\nAutor: ${asset.uploader.login}\nVersão: ${t.tag_name}\nAtualize com o comando: $ teresinha update`)
-}
-
-module.exports = () => {
-    return check();
 }
