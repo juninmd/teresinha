@@ -17,6 +17,7 @@
   "homepage": "https://github.com/juninmd/teresinha#readme",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "commander": "2.11.0",
     "download": "6.2.5",
     "hades-request": "1.0.0",

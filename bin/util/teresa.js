@@ -1,6 +1,6 @@
-const nodecmd = require('node-cmd');
 const os = require('os');
 const sudo = require('sudo');
+const command = require('../util/command');
 
 async function setSudo() {
     return new Promise((resolve) => {
@@ -21,12 +21,8 @@ async function setSudo() {
     })
 }
 
-function verifyInstalled() {
-    return new Promise((resolve) => {
-        nodecmd.get('teresa', (err) => {
-            return resolve(err == null);
-        });
-    })
+async function verifyInstalled() {
+    return await command('teresa') == null;
 }
 
 function verifyVersion() {

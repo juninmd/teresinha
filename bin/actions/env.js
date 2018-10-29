@@ -1,5 +1,5 @@
-const nodecmd = require('node-cmd');
 const fs = require('fs');
+const command = require('../util/command');
 
 module.exports = async (appName, path) => {
     if (!fs.existsSync(path)) {
@@ -14,18 +14,7 @@ async function runEnv(appName, allEnvs) {
     if (allEnvs[0] == null)
         return undefined;
 
-    await setCommand(`teresa app env-set ${allEnvs.join(', ')} --app ${appName} --no-input`);
+    await command(`teresa app env-set ${allEnvs.join(', ')} --app ${appName} --no-input`);
 }
 
-function setCommand(command) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            nodecmd.get(command, (err, data) => {
-                if (err) {
-                    return reject(err);
-                }
-                return resolve(data);
-            });
-        }, 1000);
-    })
-}
+
