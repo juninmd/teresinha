@@ -11,5 +11,5 @@ module.exports = async (appName, path) => {
     if (allEnvs[0] == null) {
         return undefined;
     }
-    return await command(`teresa app env-set ${allEnvs.join(', ')} --app ${appName} --no-input`);
+    return await command(`teresa app env-set ${allEnvs.join(' ')} --app ${appName} --no-input`);
 };
