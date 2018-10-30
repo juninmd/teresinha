@@ -16,5 +16,3 @@ async function runEnv(appName, allEnvs) {
 
     await command(`teresa app env-set ${allEnvs.join(', ')} --app ${appName} --no-input`);
 }
-
-
