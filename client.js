@@ -2,7 +2,7 @@
 const version = require('./package.json').version;
 const program = require('commander');
 const os = require('os');
-const { checkUpdate, download, startAllApps, setConfigs } = require('./bin/actions');
+const { checkUpdate, download, startAllApps, env } = require('./bin/actions');
 
 if (process.argv.length === 2) {
   console.log('Verifique os comandos com $ teresinha --help')
@@ -64,10 +64,16 @@ program
         return;
       }
 
-      await setConfigs(app, envPath);
+      await env(app, envPath);
     } catch (error) {
       console.error(error.message);
+      console.error(error);
     }
-  });
+  }).on('--help', () => {
+    console.log('');
+    console.log('Example:');
+    console.log('');
+    console.log('  $ teresinha env {nomedoapp} {caminho}');
+  });;
 
 program.parse(process.argv);
