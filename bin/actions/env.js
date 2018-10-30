@@ -7,12 +7,9 @@ module.exports = async (appName, path) => {
         return;
     }
     const allEnvs = fs.readFileSync(path).toString().split('\n').filter(q => q[0] != '#' && q != '');
-    return runEnv(appName, allEnvs);
-};
 
-async function runEnv(appName, allEnvs) {
-    if (allEnvs[0] == null)
+    if (allEnvs[0] == null) {
         return undefined;
-
-    await command(`teresa app env-set ${allEnvs.join(', ')} --app ${appName} --no-input`);
-}
+    }
+    return await command(`teresa app env-set ${allEnvs.join(', ')} --app ${appName} --no-input`);
+};
