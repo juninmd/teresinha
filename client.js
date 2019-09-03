@@ -77,7 +77,7 @@ program
   });
 
 program
-  .command('getAllenvs')
+  .command('getAllEnvs')
   .description('Copia todas as variáveis de ambiente em massa')
   .action(async () => {
     try {
@@ -89,7 +89,7 @@ program
 
       const envPath = process.argv[3];
       if (!envPath) {
-        console.log('Informe caminho dos .env');
+        console.log('Informe caminho de onde irá salvar os .env');
         return;
       }
 
@@ -102,7 +102,7 @@ program
     console.log('');
     console.log('Example:');
     console.log('');
-    console.log('  $ teresinha getAllenvs {caminho}');
+    console.log('  $ teresinha getAllEnvs {caminho}');
   });
 
 program.parse(process.argv);
