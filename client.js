@@ -2,7 +2,7 @@
 const version = require('./package.json').version;
 const program = require('commander');
 const os = require('os');
-const { checkUpdate, download, startAllApps, env, getAllEnvs } = require('./bin/actions');
+const { checkUpdate, download, startAllApps, env, getAllEnvs, setAllEnvs } = require('./bin/actions');
 
 if (process.argv.length === 2) {
   console.log('Verifique os comandos com $ teresinha --help')
@@ -103,6 +103,36 @@ program
     console.log('Example:');
     console.log('');
     console.log('  $ teresinha getAllEnvs {caminho}');
+  });
+
+
+program
+  .command('setAllEnvs')
+  .description('Seta todas as variáveis de ambiente em massa')
+  .action(async () => {
+    try {
+
+      if (os.type() === 'Windows_NT') {
+        console.log('Não disponível para Windows');
+        return;
+      }
+
+      const envPath = process.argv[3];
+      if (!envPath) {
+        console.log('Informe caminho de onde irá copiar os .env');
+        return;
+      }
+
+      await setAllEnvs(envPath);
+    } catch (error) {
+      console.error(error.message);
+      console.error(error);
+    }
+  }).on('--help', () => {
+    console.log('');
+    console.log('Example:');
+    console.log('');
+    console.log('  $ teresinha setAllEnvs {caminho}');
   });
 
 program.parse(process.argv);
