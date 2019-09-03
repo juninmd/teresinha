@@ -70,11 +70,42 @@ async function allApps() {
     return allApps;
 }
 
+async function getEnvVars(app) {
+    const envVars = {
+        app,
+        envs: []
+    };
+
+    const rawInfo = (await command(`teresa app info ${app}`)).split('\n');
+
+    let envs = false;
+    for (const line of rawInfo) {
+
+        if (line === 'env vars:') {
+            envs = true;
+            continue;
+        }
+
+        if (envs === false) {
+            continue;
+        }
+
+        if (line === 'status:') {
+            break;
+        }
+
+        envVars.envs.push(line.trim());
+    }
+
+    return envVars;
+}
+
 module.exports = {
     setSudo,
     verifyInstalled,
     verifyVersion,
     setChmod,
     movePath,
-    allApps
+    allApps,
+    getEnvVars
 }
