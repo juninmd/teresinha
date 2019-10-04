@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // tslint:disable-next-line:no-var-requires
-const version = require('./package.json').version;
+const version = require('../package.json').version;
 
 import * as os from 'os';
 import * as program from 'commander';
