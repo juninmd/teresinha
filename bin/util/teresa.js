@@ -20,7 +20,11 @@ async function setSudo() {
 }
 
 async function verifyInstalled() {
-    return await command('teresa') == null;
+    try {
+        return await command('teresa') == null;
+    } catch (error) {
+        return false;        
+    }
 }
 
 async function verifyVersion() {
