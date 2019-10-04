@@ -1,11 +1,12 @@
 {
   "name": "teresinha",
-  "version": "1.5.7",
+  "version": "2.0.0",
   "description": "Teresinha é uma interface para verificar a versão do teresa.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/juninmd/teresinha.git"
   },
+  "main": "dist/index.js",
   "author": "Antonio Carlos",
   "bugs": {
     "url": "https://github.com/juninmd/teresinha/issues"
@@ -16,17 +17,43 @@
   ],
   "homepage": "https://github.com/juninmd/teresinha#readme",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "scripts": {
+    "clear": "rm -rf ./dist",
+    "build": "./node_modules/.bin/tsc",
+    "prepublishOnly": "./node_modules/.bin/tsc",
+    "pretest": "./node_modules/.bin/tsc",
+    "test": "node_modules/.bin/jest --detectOpenHandles --forceExit --runInBand",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix",
+    "lint:test": "tslint '__tests__/**/*.ts?(x)' ",
+    "lint:test:fix": "tslint '__tests__/**/*.ts?(x)' --fix"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "commander": "2.11.0",
     "download": "6.2.5",
-    "hades-request": "^1.0.0",
     "loading-indicator": "2.0.0",
     "node-cmd": "^3.0.0",
     "sudo": "^1.0.3"
   },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.20.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.6.3"
+  },
   "preferGlobal": true,
   "bin": {
-    "teresinha": "client.js"
+    "teresinha": "dist/index.js"
   }
 }
