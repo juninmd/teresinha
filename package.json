@@ -1,6 +1,6 @@
 {
   "name": "teresinha",
-  "version": "1.5.5",
+  "version": "1.5.7",
   "description": "Teresinha é uma interface para verificar a versão do teresa.",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "axios": "^0.18.0",
     "commander": "2.11.0",
     "download": "6.2.5",
-    "hades-request": "1.0.0",
+    "hades-request": "^1.0.0",
     "loading-indicator": "2.0.0",
     "node-cmd": "^3.0.0",
     "sudo": "^1.0.3"

@@ -3,10 +3,11 @@ const getMyOsVersion = require('../util/getMyOsAsset')
 const teresa = require('../util/teresa')
 
 module.exports = async () => {
-    const t = await github();
+    const t = await github().getTeresa();
     if (t.documentation_url) {
         console.error('Token Inválido.');
-        throw 'Token Inválido GITHUB';
+        process.exit(1);
+        return;
     }
 
     const teresaExist = await teresa.verifyInstalled();
