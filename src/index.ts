@@ -1,11 +1,14 @@
 #!/usr/bin/env node
+// tslint:disable-next-line:no-var-requires
 const version = require('./package.json').version;
-const program = require('commander');
-const os = require('os');
-const { checkUpdate, download, startAllApps, env, getAllEnvs, setAllEnvs } = require('./bin/actions');
+
+import * as os from 'os';
+import * as program from 'commander';
+
+import { checkUpdate, download, env, getAllEnvs, setAllEnvs, start } from './actions';
 
 if (process.argv.length === 2) {
-  console.log('Verifique os comandos com $ teresinha --help')
+  console.log('Verifique os comandos com $ teresinha --help');
 }
 
 program
@@ -36,7 +39,7 @@ program
   .description('Starta todos seus apps')
   .action(async () => {
     try {
-      await startAllApps();
+      await start();
     } catch (error) {
       console.error(error.message);
     }
@@ -104,7 +107,6 @@ program
     console.log('');
     console.log('  $ teresinha getAllEnvs {caminho}');
   });
-
 
 program
   .command('setAllEnvs')
