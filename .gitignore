@@ -1,7 +1,8 @@
 node_modules/*
 yarn.lock
-bin/env/development.env
-images/
 package-lock.json
-
-dist/*
+*.js
+*.js.map
+*.d.ts
+yarn-error.log
+!jest.config.js

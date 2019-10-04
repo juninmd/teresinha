@@ -1,4 +1,4 @@
-import nodecmd from 'node-cmd';
+import * as nodecmd from 'node-cmd';
 
 export default (command): Promise<any> => {
   console.log('\x1b[36m%s\x1b[0m', '[teresinha command] begin');
