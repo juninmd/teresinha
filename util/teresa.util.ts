@@ -1,7 +1,7 @@
 import * as os from 'os';
+import * as sudo from 'sudo';
 
 import command from './command.util';
-import sudo from 'sudo';
 
 async function setSudo() {
 

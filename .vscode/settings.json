@@ -1,5 +1,14 @@
 {
-    "eslint.enable": false,
-    "javascript.implicitProjectConfig.checkJs": true,
-    "javascript.implicitProjectConfig.experimentalDecorators": true
+  "eslint.enable": false,
+  "javascript.implicitProjectConfig.checkJs": true,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "*.js": true,
+    "*.js.map": true,
+  }
 }

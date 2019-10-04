@@ -1,17 +1,60 @@
 {
-    // Use IntelliSense to learn about possible Node.js debug attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}/index.js",
-            "args": [
-                "-–harmony-async-await"
-            ]
-        }
-    ]
+  // Use IntelliSense to learn about possible Node.js debug attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Teresinha Check",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/index.ts",
+        "check"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Teresinha Update",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/index.ts",
+        "update"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Rodar via Compilação",
+      "program": "${workspaceFolder}/index.js",
+      "preLaunchTask": "build",
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/*.js",
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Rodar Testes",
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": [
+        "-i",
+        "--forceExit"
+      ],
+      "sourceMaps": true,
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+  ]
 }
