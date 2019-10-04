@@ -1,12 +1,11 @@
 {
   "name": "teresinha",
-  "version": "2.0.0-alpha-2",
+  "version": "2.0.0",
   "description": "Teresinha é uma interface para verificar a versão do teresa.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/juninmd/teresinha.git"
   },
-  "main": "dist/index.js",
   "author": "Antonio Carlos",
   "bugs": {
     "url": "https://github.com/juninmd/teresinha/issues"
@@ -23,7 +22,7 @@
     }
   },
   "scripts": {
-    "clear": "rm -rf ./dist",
+    "clean": "scripts/clean.sh",
     "build": "./node_modules/.bin/tsc",
     "prepublishOnly": "./node_modules/.bin/tsc",
     "pretest": "./node_modules/.bin/tsc",
@@ -34,9 +33,10 @@
     "lint:test:fix": "tslint '__tests__/**/*.ts?(x)' --fix"
   },
   "dependencies": {
+    "@types/download": "^6.2.4",
     "axios": "^0.18.0",
     "commander": "2.11.0",
-    "download": "6.2.5",
+    "download": "7.1.0",
     "loading-indicator": "2.0.0",
     "node-cmd": "^3.0.0",
     "sudo": "^1.0.3"
@@ -54,6 +54,6 @@
   },
   "preferGlobal": true,
   "bin": {
-    "teresinha": "dist/index.js"
+    "teresinha": "index.js"
   }
 }

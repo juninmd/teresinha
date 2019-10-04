@@ -1,26 +1,25 @@
 {
   "compilerOptions": {
-    "incremental": true,
     "baseUrl": "./",
-    "outDir": "dist",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
     "lib": [
-      "esnext",
+      "es2017",
+      "es7",
+      "es6",
+      "dom"
     ],
     "stripInternal": true,
     "target": "es6",
     "module": "commonjs",
+    "declaration": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "skipLibCheck": true,
     "preserveConstEnums": true,
-    "removeComments": true,
+    "removeComments": false,
     "sourceMap": true,
     "strict": false,
     "strictNullChecks": true,
@@ -32,12 +31,11 @@
     ],
   },
   "include": [
-    "src/**/**.ts",
-    "src/*.ts",
+    "**/*"
   ],
   "exclude": [
     ".vscode",
     "node_modules",
-    "__tests__"
+    "test"
   ]
 }
