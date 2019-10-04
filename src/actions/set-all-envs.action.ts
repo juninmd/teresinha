@@ -1,17 +1,18 @@
-const path = require('path');
-const fs = require('fs');
-const command = require('../util/command');
+import * as fs from 'fs';
+import * as path from 'path';
 
-module.exports = async (pathName) => {
+import command from '../util/command.util';
+
+export default async (pathName) => {
 
   const pathResolved = path.resolve(pathName);
 
   if (!fs.existsSync(pathResolved)) {
-    console.log(`${pathResolved} não foi encontrado`)
+    console.log(`${pathResolved} não foi encontrado`);
     return;
   }
 
-  const promises = [];
+  const promises: Promise<any>[] = [];
 
   const envsFiles = fs.readdirSync(pathResolved);
 
@@ -19,7 +20,7 @@ module.exports = async (pathName) => {
 
     const appName = envFile.split('.env-')[1];
 
-    const allEnvs = fs.readFileSync(`${pathResolved}/${envFile}`).toString().split('\n').filter(q => q[0] != '#' && q != '');
+    const allEnvs = fs.readFileSync(`${pathResolved}/${envFile}`).toString().split('\n').filter(q => q[0] !== '#' && q !== '');
 
     if (allEnvs[0] == null) {
       continue;
