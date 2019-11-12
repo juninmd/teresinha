@@ -23,7 +23,7 @@ async function setSudo() {
 
 async function verifyInstalled() {
   try {
-    return await command('teresa') == null;
+    return await command('teresa') !== null;
   } catch (error) {
     return false;
   }
