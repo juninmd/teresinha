@@ -21,7 +21,7 @@ export default async (pathName) => {
   }));
 
   envVars.map((item: any) => {
-    fs.writeFileSync(`${pathResolved}/.env-${item.app}`, item.envs.join('\n'));
+    fs.writeFileSync(`${pathResolved}/.env-${item.app}`, teresa.parserEnv(item.envs).join('\n'));
   });
 
   return envVars;

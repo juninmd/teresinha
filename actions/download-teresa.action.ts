@@ -5,12 +5,6 @@ import teresa from '../util/teresa.util';
 
 export default async () => {
   const t = await github();
-  if (t.documentation_url) {
-    console.error('Token Inválido.');
-    process.exit(1);
-    return;
-  }
-
   const asset = getMyOsVersion(t.assets);
 
   const teresaExist = await teresa.verifyInstalled();
