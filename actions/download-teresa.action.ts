@@ -4,10 +4,10 @@ import github from '../api/github.api';
 import teresa from '../util/teresa.util';
 
 export default async () => {
+  const teresaExist = await teresa.verifyInstalled();
   const t = await github();
   const asset = getMyOsVersion(t.assets);
 
-  const teresaExist = await teresa.verifyInstalled();
   if (teresaExist) {
     const computerVersion = await teresa.verifyVersion();
     if (t.name === computerVersion) {
