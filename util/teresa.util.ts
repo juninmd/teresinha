@@ -117,6 +117,17 @@ function parserEnv(allEnvs) {
   return allEnvsParsed;
 }
 
+function getParsedEnvs(allEnvs) {
+
+  const allEnvsParsed: any[] = [];
+
+  for (const envLine of allEnvs) {
+    const split = envLine.split('=');
+    allEnvsParsed.push(`${split[0]}=${split[1]}`);
+  }
+  return allEnvsParsed;
+}
+
 export default {
   setSudo,
   verifyInstalled,
@@ -126,4 +137,5 @@ export default {
   allApps,
   getEnvVars,
   parserEnv,
+  getParsedEnvs,
 };
