@@ -7,6 +7,21 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch current File",
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register"
+      ],
+      "args": [
+        "${workspaceFolder}/${relativeFile}"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Teresinha Check",
       "runtimeArgs": [
         "-r",
