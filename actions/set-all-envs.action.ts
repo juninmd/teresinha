@@ -23,7 +23,7 @@ export default async (pathName) => {
 
     const allEnvs = fs.readFileSync(`${pathResolved}/${envFile}`).toString().split('\n').filter(q => q[0] !== '#' && q !== '');
 
-    const allEnvsParsed = teresa.parserEnv(allEnvs);
+    const allEnvsParsed = teresa.getParsedEnvs(allEnvs);
 
     if (allEnvsParsed.length === 0) {
       continue;
