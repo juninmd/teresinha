@@ -1,0 +1,19 @@
+[[allowlist]]
+description = "False positive: generic-api-key in src/config.ts"
+rules = ["generic-api-key"]
+paths = ["src/config.ts"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in webconfig.js"
+rules = ["generic-api-key"]
+paths = ["webconfig.js"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in webconfig.js"
+rules = ["generic-api-key"]
+paths = ["webconfig.js"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in webconfig.js"
+rules = ["generic-api-key"]
+paths = ["webconfig.js"]
