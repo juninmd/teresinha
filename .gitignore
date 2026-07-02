@@ -6,3 +6,5 @@ package-lock.json
 *.d.ts
 yarn-error.log
 !jest.config.js
+
+.env
