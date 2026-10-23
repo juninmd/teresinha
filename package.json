@@ -26,7 +26,7 @@
     "build": "tsc",
     "prepublishOnly": "tsc",
     "pretest": "tsc",
-    "test": "jest --detectOpenHandles --forceExit --runInBand",
+    "test": "jest --detectOpenHandles --forceExit --runInBand --passWithNoTests",
     "lint": "tslint --project .",
     "lint:fix": "tslint --project . --fix",
     "lint:test": "tslint '__tests__/**/*.ts?(x)' ",
