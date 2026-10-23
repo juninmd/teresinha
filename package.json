@@ -23,10 +23,10 @@
   },
   "scripts": {
     "clean": "scripts/clean.sh",
-    "build": "./node_modules/.bin/tsc",
-    "prepublishOnly": "./node_modules/.bin/tsc",
-    "pretest": "./node_modules/.bin/tsc",
-    "test": "node_modules/.bin/jest --detectOpenHandles --forceExit --runInBand",
+    "build": "tsc",
+    "prepublishOnly": "tsc",
+    "pretest": "tsc",
+    "test": "jest --detectOpenHandles --forceExit --runInBand --passWithNoTests",
     "lint": "tslint --project .",
     "lint:fix": "tslint --project . --fix",
     "lint:test": "tslint '__tests__/**/*.ts?(x)' ",
@@ -50,7 +50,7 @@
     "ts-node": "^8.3.0",
     "tslint": "^5.20.0",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.6.3"
+    "typescript": "^4.9.5"
   },
   "preferGlobal": true,
   "bin": {
