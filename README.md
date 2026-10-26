@@ -135,14 +135,13 @@ $ node index.js --help  # executa o CLI compilado pelo build
 | Ponto | Situação |
 |---|---|
 | Download | baixa o asset da release de `luizalabs/teresa` sem checar hash ou assinatura |
-| Permissões | `update` usa `sudo` no Linux e Mac para mover o binário e aplica `chmod 777` nele; no Windows usa `move` para `System32`, que exige Administrador |
+| Permissões | `update` usa `sudo` no Linux e Mac para mover o binário e aplica `chmod 755` nele; no Windows usa `move` para `System32`, que exige Administrador |
 | Variáveis de app | `getAllEnvs` grava valores em texto puro em `<diretorio>/.env-<app>`; o `.gitignore` deste repositório cobre `.env`, mas não `.env-*` |
 | Linha de comando | `env` e `setAllEnvs` passam os valores como argumentos de `teresa app env-set`, visíveis para outros processos enquanto o comando roda |
 
 ## Limitações conhecidas
 
 - `env`, `getAllEnvs` e `setAllEnvs` imprimem `Não disponível para Windows`.
-- `env` falha em Linux e Mac com `TypeError: path.resolve is not a function`: o parâmetro `path` em `actions/env.action.ts` sombreia o módulo `path`, que não é importado. Bug conhecido, ainda sem correção.
 - `getAllEnvs` e `setAllEnvs` não foram executados contra um `teresa` real nesta revisão.
 - `setAllEnvs` lê todo arquivo do diretório, não só os `.env-<app>`.
 - Sem o `teresa` instalado, `check` imprime um stack trace do erro antes da mensagem, porque `util/command.util.ts` registra o erro com `console.log`.

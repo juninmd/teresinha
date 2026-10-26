@@ -1,11 +1,12 @@
 import * as fs from 'fs';
+import * as path from 'path';
 
 import command from '../util/command.util';
 import teresa from '../util/teresa.util';
 
-export default async (appName, path) => {
+export default async (appName: string, envFilePath: string) => {
 
-  const pathResolved = path.resolve(path);
+  const pathResolved = path.resolve(envFilePath);
 
   if (!fs.existsSync(pathResolved)) {
     console.log(`${pathResolved} não foi encontrado`);
