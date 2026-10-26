@@ -38,7 +38,7 @@ async function setChmod(path) {
   if (os.type() === 'Windows_NT') {
     return {};
   }
-  return command(`sudo chmod 777 ${path}`);
+  return command(`sudo chmod 755 ${path}`);
 }
 
 async function movePath(path, filename) {
