@@ -1,0 +1,7 @@
+# Supressoes por fingerprint - triagem manual registrada no PR de seguranca.
+
+# Token em src/config.ts removido do HEAD.
+# O valor segue no historico publico e DEVE SER ROTACIONADO no provedor.
+# Depois de rotacionar, remover estas linhas.
+
+36f8e1864c0213d5a765984813500b7dd243763d:src/config.ts:generic-api-key:2
